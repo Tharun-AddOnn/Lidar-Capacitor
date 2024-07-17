@@ -10,11 +10,11 @@ import com.getcapacitor.PluginMethod;
 public class Lidar extends Plugin {
 
     @PluginMethod
-    public void echo(PluginCall call) {
-        String value = call.getString("value");
-
-        JSObject ret = new JSObject();
-        ret.put("value", value);
-        call.success(ret);
+    public boolean isLiDARAvailable(PluginCall call) {
+        call.reject("Lidar Not Available in Android");
+    }
+    @PluginMethod
+    public boolean startScan(PluginCall call) {
+        call.reject("Lidar Not Available in Android");
     }
 }

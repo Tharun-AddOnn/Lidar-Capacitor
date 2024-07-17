@@ -17,9 +17,9 @@
   "author": "tharun",
   "license": "MIT",
   "devDependencies": {
-    "@capacitor/android": "^2.4.7",
-    "@capacitor/core": "^2.4.7",
-    "@capacitor/ios": "^2.4.7",
+    "@capacitor/android": "^6.1.0",
+    "@capacitor/core": "^6.1.0",
+    "@capacitor/ios": "^6.1.0",
     "@ionic/prettier-config": "^1.0.0",
     "@ionic/swiftlint-config": "^1.0.0",
     "@rollup/plugin-node-resolve": "^8.1.0",
@@ -31,7 +31,7 @@
     "typescript": "~3.8.3"
   },
   "peerDependencies": {
-    "@capacitor/core": "^2.4.7"
+    "@capacitor/core": "^6.1.0"
   },
   "files": [
     "dist/",
@@ -42,7 +42,8 @@
   "keywords": [
     "capacitor",
     "plugin",
-    "native"
+    "native",
+    "Lidar"
   ],
   "capacitor": {
     "ios": {
@@ -60,5 +61,8 @@
   },
   "bugs": {
     "url": "https://github.com/Tharun-AddOnn/Lidar-Capacitor/issues"
+  },
+  "dependencies": {
+    "npm": "^10.8.2"
   }
 }

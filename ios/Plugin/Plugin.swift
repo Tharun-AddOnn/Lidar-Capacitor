@@ -7,6 +7,16 @@ import UIKit
 @available(iOS 16.0, *)
 @objc(Lidar)
 public class Lidar: CAPPlugin, ScanDelegate {
+
+    func onDelegateCall(_ controller: RoomCaptureViewController, didFinishWithResult result: String) {
+        if let callbackId = scanCallbackId {
+            notifyListeners("onScanResult", data: [
+                "result": result
+            ])
+            bridge?.saveCallResult(CAPPluginCallResult(json: ["result": result]), forCallbackId: callbackId)
+        }
+    }
+    
     private var roomCaptureViewController: RoomCaptureViewController?
     private var scanCallbackId: String?
 
@@ -33,15 +43,6 @@ public class Lidar: CAPPlugin, ScanDelegate {
             } else {
                 call.reject("Unable to present RoomCaptureViewController")
             }
-        }
-    }
-
-    func onDelegateCall(_ controller: RoomCaptureViewController, didFinishWithResult result: String) {
-        if let callbackId = scanCallbackId {
-            notifyListeners("onScanResult", data: [
-                "result": result
-            ])
-            bridge?.saveCallResult(CAPPluginCallResult(json: ["result": result]), forCallbackId: callbackId)
         }
     }
 }
